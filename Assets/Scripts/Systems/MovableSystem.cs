@@ -3,18 +3,19 @@ using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
 using Unity.Mathematics;
+using Unity.Physics;
 using Unity.Transforms;
 
 public class MovableSystem : SystemBase {
 
     protected override void OnUpdate() {
 
-        float deltaTime = Time.DeltaTime;
+        //float deltaTime = Time.DeltaTime;
 
-        Entities.ForEach((ref Movable movable, ref Translation translation, ref Rotation rotation) => {
+        Entities.ForEach((ref PhysicsVelocity physicsVelocity, in Movable movable) => {
 
-            translation.Value += movable.speed * movable.direction * deltaTime;
-            rotation.Value = math.mul(rotation.Value.value, quaternion.RotateY(movable.speed * deltaTime));
+            var step = movable.direction * movable.speed;
+            physicsVelocity.Linear = step;
 
         }).Schedule();
     }
