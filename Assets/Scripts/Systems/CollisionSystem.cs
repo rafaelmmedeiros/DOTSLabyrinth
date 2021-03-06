@@ -46,6 +46,7 @@ public class CollisionSystem : SystemBase {
 
         }).Run();
 
+        // POPULATE TO NOT RETURN NULL
         var collisionJobHandle = new CollisionSystemJob() {
 
             collisions = GetBufferFromEntity<CollisionBuffer>()
@@ -54,15 +55,14 @@ public class CollisionSystem : SystemBase {
 
         collisionJobHandle.Complete();
 
-
-
-
+        //
         Entities.ForEach((DynamicBuffer<TriggerBuffer> triggers) => {
 
             triggers.Clear();
 
         }).Run();
 
+        //
         var triggerJobHandle = new TriggerSystemJob() {
 
             triggers = GetBufferFromEntity<TriggerBuffer>()
