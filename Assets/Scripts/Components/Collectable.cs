@@ -3,7 +3,7 @@ using Unity.Mathematics;
 using UnityEngine;
 
 [GenerateAuthoringComponent]
-public struct Collectable : IComponentData {
-
-    public float points;
+public struct Collectable : IComponentData
+{
+    public int points;
 }

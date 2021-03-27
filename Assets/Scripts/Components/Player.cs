@@ -5,6 +5,4 @@ using UnityEngine;
 [GenerateAuthoringComponent]
 public struct Player : IComponentData {
 
-
-
 }

@@ -21,9 +21,9 @@ public class EnemySystem : SystemBase {
 
         Entities.ForEach((ref Movable movable, ref Enemy enemy, in Translation translation) => {
 
-            if (math.distance(translation.Value, enemy.previsousCell) > 0.9) {
+            if (math.distance(translation.Value, enemy.previousCell) > 0.9) {
 
-                enemy.previsousCell = math.round(translation.Value);
+                enemy.previousCell = math.round(translation.Value);
 
                 var validDirection = new NativeList<float3>(Allocator.Temp);
 

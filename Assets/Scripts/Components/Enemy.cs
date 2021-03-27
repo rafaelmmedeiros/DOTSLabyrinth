@@ -4,7 +4,6 @@ using UnityEngine;
 
 [GenerateAuthoringComponent]
 public struct Enemy : IComponentData {
-
-    public float3 previsousCell;
-
+    
+    public float3 previousCell;
 }
